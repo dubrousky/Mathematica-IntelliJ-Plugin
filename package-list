@@ -10,6 +10,7 @@ de.halirutan.mathematica.module
 de.halirutan.mathematica.parsing
 de.halirutan.mathematica.parsing.prattParser
 de.halirutan.mathematica.parsing.prattParser.parselets
+de.halirutan.mathematica.parsing.psi
 de.halirutan.mathematica.parsing.psi.api
 de.halirutan.mathematica.parsing.psi.api.arithmetic
 de.halirutan.mathematica.parsing.psi.api.assignment
