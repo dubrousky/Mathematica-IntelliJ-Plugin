@@ -95,6 +95,12 @@
         <enterHandlerDelegate
                 implementation="de.halirutan.mathematica.codeinsight.formatter.MathematicaEnterBetweenBracesHandler"/>
 
+        <applicationConfigurable instance="repl.simple.mathematica.Ui.MathREPLSettings"></applicationConfigurable>
+        <toolWindow id="Mathematica REPL"
+                    canCloseContents="true"
+                    icon="/icons/spikeyV10.png"
+                    anchor="right"
+                    factoryClass="repl.simple.mathematica.MathREPLToolWindowFactory" />
     </extensions>
 
     <actions>
@@ -105,7 +111,59 @@
             <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFromTemplate"/>
 
         </action>
-
+        <action class="repl.simple.mathematica.Actions.AboutAction" text="About Mathematica REPL plugin..."
+                id="MathREPL.repl.simple.mathematica.Actions.AboutAction">
+            <add-to-group group-id="HelpMenu" anchor="before" relative-to-action="About"/>
+        </action>
+        <action id="MathREPL.repl.simple.mathematica.Actions.MathREPLStartKernelAction" class="repl.simple.mathematica.Actions.MathREPLStartKernelAction" text="Start Kernel"
+                description="Starts new Mathematica Kernel session">
+        </action>
+        <action id="MathREPL.repl.simple.mathematica.Actions.MathREPLEvaluateSelectionAction" class="repl.simple.mathematica.Actions.MathREPLEvaluateSelectionAction" text="Evaluate Selection in REPL"
+                description="Loads and evaluates selection in Mathematica REPL">
+        </action>
+        <action id="MathREPL.repl.simple.mathematica.Actions.MathREPLConfigureAction" class="repl.simple.mathematica.Actions.MathREPLConfigureAction" text="Configure REPL"
+                description="Configures Mathematica REPL">
+        </action>
+        <action id="MathREPL.repl.simple.mathematica.Actions.MathREPLTerminateKernelAction" class="repl.simple.mathematica.Actions.MathREPLTerminateKernelAction" text="Terminate Kernel"
+                description="Terminates connection to the current Mathematica kernel">
+        </action>
+        <action id="MathREPL.repl.simple.mathematica.Actions.MathREPLEvaluateFileAction" class="repl.simple.mathematica.Actions.MathREPLEvaluateFileAction"
+                text="Evaluate File in REPL" description="Loads file and evaluates it in the REPL">
+        </action>
+        <action id="MathREPL.repl.simple.mathematica.Actions.MathREPLHelpSelectedSymbol" class="repl.simple.mathematica.Actions.MathREPLHelpSelectedSymbol"
+                text="Find info for symbol" description="Searches help info for selected symbol">
+        </action>
+        <action id="MathREPL.repl.simple.mathematica.Actions.MathREPLNewSession" class="repl.simple.mathematica.Actions.MathREPLNewSession"
+                text="New Session" description="Starts new session">
+        </action>
+        <group class="repl.simple.mathematica.MathREPLActionGroup"
+               id="MathREPLActionGroup"
+               text="Mathematica REPL"
+               description=""
+               icon="/icons/spikeyV10.png"
+               popup="true">
+            <separator/>
+            <reference id="MathREPL.repl.simple.mathematica.Actions.MathREPLConfigureAction"/>
+            <reference id="MathREPL.repl.simple.mathematica.Actions.MathREPLNewSession"/>
+            <reference id="MathREPL.repl.simple.mathematica.Actions.MathREPLStartKernelAction"/>
+            <reference id="MathREPL.repl.simple.mathematica.Actions.MathREPLEvaluateSelectionAction"/>
+            <reference id="MathREPL.repl.simple.mathematica.Actions.MathREPLTerminateKernelAction"/>
+            <separator/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </group>
+        <group class="repl.simple.mathematica.MathREPLPopupActionGroup"
+               id="MathREPLPopupActionGroup"
+               text="Mathematica REPL"
+               description=""
+               icon="/icons/spikeyV10.png"
+               popup="true">
+            <separator/>
+            <reference id="MathREPL.repl.simple.mathematica.Actions.MathREPLEvaluateSelectionAction"/>
+            <reference id="MathREPL.repl.simple.mathematica.Actions.MathREPLHelpSelectedSymbol"/>
+            <reference id="MathREPL.repl.simple.mathematica.Actions.MathREPLEvaluateFileAction"/>
+            <separator/>
+            <add-to-group group-id="EditorPopupMenu1" anchor="last"/>
+        </group>
         <!-- Actions for debugging purpose only -->
         <!--<action id="Mathematica.ShowFormattingBlocks" class="de.halirutan.mathematica.actions.ShowFormattingBlocks"-->
         <!--text="Show Formatting Blocks" description="Shows the underlying formatting blocks of a file">-->

@@ -381,8 +381,8 @@ public class YouTrackBugReporter extends ErrorReportSubmitter {
       @Override
       public void run() {
         StringBuilder text = new StringBuilder("<html>");
-        final String url = IdeErrorsDialog.getUrl(reportInfo, false);
-        IdeErrorsDialog.appendSubmissionInformation(reportInfo, text, url);
+        final String url = "";//IdeErrorsDialog.getUrl(reportInfo, false);
+        //IdeErrorsDialog.appendSubmissionInformation(reportInfo, text, url);
         text.append(".");
         final SubmittedReportInfo.SubmissionStatus status = reportInfo.getStatus();
         if (status == NEW_ISSUE) {
